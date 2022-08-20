@@ -38,7 +38,7 @@
 				case 'ArrowUp':
 					squigID++;
 					break;
-				case 'KeyR':
+				case 'r':
 					rnjesus();
 			}
 		};
