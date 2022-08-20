@@ -1,7 +1,7 @@
 
 # About
 
-SquiggleVision is a superior full-screen squiggle discovery and appreciation experience that is currently desktop-only.
+SquiggleVision is a superior full-screen squiggle discovery and viewing experience that is currently desktop-only.
 
 ## Motivations
 
