@@ -1,9 +1,9 @@
 import { ethers } from 'ethers';
-//import { env } from ''
+import { INFURA_API_KEY } from '$env/static/private';
 
 export let refreshENS = async (minterAddress, ownerAddress) => {
     const provider = new ethers.providers.JsonRpcProvider(
-        `https://mainnet.infura.io/v3/ea4b2d39a8c344dd9708a9f4e092998d`
+        `https://mainnet.infura.io/v3/${INFURA_API_KEY}`
     );
 
     let ENS = {

@@ -1,8 +1,10 @@
 import { gql } from 'graphql-request';
 import { GraphQLClient } from 'graphql-request';
+import { ZORA_API_KEY } from '$env/static/private';
+
 
 export const client = new GraphQLClient('https://api.zora.co/graphql', {
-    "X-API-KEY": "tLkmBFLHCjaPMsJKa8raNw"
+    "X-API-KEY": ZORA_API_KEY
 })
 
 
