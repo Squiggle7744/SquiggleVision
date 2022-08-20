@@ -1,38 +1,35 @@
-# create-svelte
+# About
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+SquiggleVision is a superior full-screen squiggle discovery and viewing experience that is currently desktop-only.
 
-## Creating a project
+## Motivations
 
-If you're seeing this, you've probably already done this step. Congrats!
+Most interfaces used to browse Chromie Squiggles, including the native [Artblocks.io](http://Artblocks.io) interface, are relatively high-friction to access and don’t always display all of the relevant information. Additionally, external sites like OpenSea/LooksRare/Archipelago/SquiggleDAO all adopt a grid-based view, despite the squiggles’ display agnostic properties. SquiggleVision provides a clean, minimalistic interface for browsing squiggles without the need for a clunky interface full of dropdowns and needless searching.
 
-```bash
-# create a new project in the current directory
-npm init svelte
+# Features
 
-# create a new project in my-app
-npm init svelte my-app
-```
+- Highly interactive
+- Full Screen experience
+- Random Squiggle on refresh
+- Random Squiggle button
+- Keyboard navigation
+- Live code view
+- Full Attributes list
+- Minimal provenance
+- Owner/minter ENS domains
 
-## Developing
+## Keyboard Navigation
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+`r` for random `up`, `right` for next squiggle `down`, `left` for previous squiggle
 
-```bash
-npm run dev
+# Looking Forward
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Future updates will include richer data in the UI as well as provide more information on the on-chain aspects of Squiggles such as rarity, artist description, mint time, day-one-ness, etc.
 
-## Building
+## Planned Features
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- A history of Chromie Squiggles
+- “Day One”
+- Rarity Statistics
+- Search and filtering by Attribute type
+- Filtering squiggles by wallet
