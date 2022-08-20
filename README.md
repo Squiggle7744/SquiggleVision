@@ -27,7 +27,7 @@ Most interfaces used to browse Chromie Squiggles, including the native [Artblock
 
 Future updates will include richer data in the UI as well as provide more information on the on-chain aspects of Squiggles such as rarity, artist description, mint time, day-one-ness, etc.
 
-## Features
+## Planned Features
 
 - A history of Chromie Squiggles
 - “Day One”
