@@ -142,7 +142,7 @@
 					{/if}
 				</div>
 
-				<div class="justify-self-center w-full h-full overflow-auto desktop:row-span-2">
+				<div class="justify-self-center w-full h-full overflow-y-auto desktop:row-span-2">
 					<AttributeSection {isMobile} />
 				</div>
 				<div class="place-self-end justify-self-start ">
