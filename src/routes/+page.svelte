@@ -88,7 +88,7 @@
 </svelte:head>
 
 {#if loadingOver == false}
-	<div out:fade={{ duration: 1000, easing: quadIn }} class="fixed z-10 h-full w-full bg-stone-900 ">
+	<div out:fade={{ duration: 1000, easing: quadIn }} class="fixed z-50 h-full w-full bg-stone-900 ">
 		<img
 			out:fade={{ duration: 500, easing: quadIn }}
 			alt="7744"
@@ -104,7 +104,7 @@
 		<!-- Left Column Bar -->
 
 		<div class="basis-1/6 h-auto shadow-lg">
-			<div class="grid grid-rows-3 place-items-center items-start	p-6 h-full">
+			<div class="grid grid-rows-3 place-items-center items-start	p-6 h-full overflow-hidden">
 				<div class="place-self-start left-0 top-0">
 					{#if firstLoad == true}
 						<h1
@@ -142,10 +142,10 @@
 					{/if}
 				</div>
 
-				<div class="justify-self-center w-full h-full overflow-y-auto desktop:row-span-2">
+				<div class="justify-self-center w-full h-full overflow-x-hidden z-30	 scroll-smooth desktop:row-span-2">
 					<AttributeSection {isMobile} />
 				</div>
-				<div class="place-self-end justify-self-start ">
+				<div class="place-self-end justify-self-start w-full z-40  bg-stone-800">
 					<SquigDetailsSection />
 				</div>
 			</div>

@@ -10,7 +10,7 @@
     @apply text-stone-300 text-center font-darkGrot
 }
 .statBlockHover {
-    @apply duration-150 hover:scale-110 hover:-translate-y-1 hover:ease-in
+    @apply duration-150
 }
 @tailwind utilities;
 @tailwind typography;
