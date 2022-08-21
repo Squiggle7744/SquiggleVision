@@ -83,6 +83,8 @@
 
 <svelte:head>
 	<title>🔎 Squiggle Vision</title>
+	<meta name="description" content="Interactive Full Screen Chromie Squiggle Viewer and Explorer">
+
 </svelte:head>
 
 <LoadingScreen />
