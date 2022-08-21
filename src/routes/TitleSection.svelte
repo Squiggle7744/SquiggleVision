@@ -1,5 +1,4 @@
 <script>
-	import { squigStore } from '$lib/squigStore.js';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
