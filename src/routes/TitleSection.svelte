@@ -5,13 +5,14 @@
 
 	let firstLoad = false;
 	export let squigsMinted
+	export let squigID;
 
 	onMount(() => {
 		firstLoad = true;
 	});
 
 	function rnjesus() {
-		$squigStore.token.token.metadata.tokenID = Math.floor(Math.random() * squigsMinted)
+		squigID = Math.floor(Math.random() * squigsMinted)
 	}
 </script>
 
