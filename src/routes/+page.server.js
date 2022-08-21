@@ -8,14 +8,12 @@ export const client = new GraphQLClient('https://api.zora.co/graphql', {
 
 //get squig metadata from Zora, default returns random squig
 export const load = async (tokenId) => {
-	console.log('running GET for newsquig')
 	const squigsMinted = 9675;
 
 	try {
 		let tokenId;
 		if (tokenId == undefined) {
 			tokenId = Math.floor(Math.random() * squigsMinted);
-      console.log(tokenId)
 		}
 		const query = gql`
         query SquigLookup {
@@ -37,7 +35,6 @@ export const load = async (tokenId) => {
     `;
     
 		const squig = await client.request(query);
-		console.log(squig)   
 		return squig;
 	} catch (error) {
     console.log('throwing error')
