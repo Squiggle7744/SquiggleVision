@@ -15,3 +15,4 @@
 		src={$squigStore.token.token.metadata.generator_url}
 	/>
 </div>
+  
