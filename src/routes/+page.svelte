@@ -3,10 +3,10 @@
 	import { squigStore } from '$lib/squigStore.js';
 	import { quadIn } from 'svelte/easing';
 	import { fade, fly } from 'svelte/transition';
-	import logo from '$lib/assets/logo.gif';
 	import { getNewSquig } from './squigGetter/+server.js';
 	import SquigDetailsSection from './SquigDetailsSection.svelte';
 	import AttributeSection from './AttributeSection.svelte';
+	import LoadingScreen from './loadingScreen.svelte';
 	import { browser } from '$app/env';
  
 	export let data;
@@ -16,7 +16,6 @@
 	const squigsMinted = 9675;
 	let squigID = $squigStore.token.token.metadata.tokenID;
 	let ready = false;
-	let loadingOver = false;
 	let firstLoad = false;
 	let timer;
 	let isMobile = false;
@@ -78,26 +77,13 @@
 		}, 500);
 	}
 
-	setTimeout(() => {
-		loadingOver = true;
-	}, '1000');
 </script>
 
 <svelte:head>
 	<title>🔎 Squiggle Vision</title>
 </svelte:head>
 
-{#if loadingOver == false}
-	<div out:fade={{ duration: 1000, easing: quadIn }} class="fixed z-50 h-full w-full bg-stone-900 ">
-		<img
-			out:fade={{ duration: 500, easing: quadIn }}
-			alt="7744"
-			src={logo}
-			width="64"
-			class="fixed z-20 top-1/2 left-1/2 -ml-6 -mt-6"
-		/>
-	</div>
-{/if}
+<LoadingScreen />
 
 {#if isMobile == false}
 	<div class="flex flex-row h-screen bg-stone-800">
