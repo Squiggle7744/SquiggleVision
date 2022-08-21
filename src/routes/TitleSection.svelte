@@ -28,7 +28,7 @@
 			<input
 				in:fly={{ x: -30, delay: 2200, duration: 400 }}
 				type="number"
-				bind:value={$squigStore.token.token.metadata.tokenID}
+				bind:value={squigID}
 				id="newID"
 				placeholder={squigID}
 				class="input input-ghost input-md appearance-none	
