@@ -30,11 +30,11 @@
 				type="number"
 				bind:value={$squigStore.token.token.metadata.tokenID}
 				id="newID"
-				placeholder={$squigStore.token.token.metadata.tokenID}
+				placeholder={squigID}
 				class="input input-ghost input-md appearance-none	
                             text-stone-400 bg-stone-700 laptop:mt-2
-                            laptop:w-3/4 desktop:w-1/2 laptop:text-2xl desktop:text-3xl text-left	
-                            font-darkGrot
+                            laptop:w-3/4 desktop:w-1/2 laptop:text-2xl desktop:text-3xl	
+                            font-darkGrot text-center
                             hover:bg-stone-900 hover:text-stone-700"
 			/>
 			<button
