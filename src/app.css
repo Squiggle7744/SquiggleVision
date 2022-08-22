@@ -12,5 +12,15 @@
 .statBlockHover {
     @apply duration-150
 }
+.skeletonText {
+    @apply w-36 bg-gray-300 h-6 rounded-md animate-pulse opacity-10
+}
+.baseUrl {
+    @apply text-base font-darkGrot text-stone-400 hover:text-blue-300
+}
+.subHeader {
+    @apply text-xl align-text-bottom text-stone-200 pb-3
+    bg-stone-800 text-left font-darkGrot laptop:text-2xl desktop:text-3xl
+}
 @tailwind utilities;
 @tailwind typography;

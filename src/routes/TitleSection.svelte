@@ -17,12 +17,16 @@
 
 {#if firstLoad == true}
 	<h1
-		in:fly={{ x: -40, delay: 1850, duration: 400 }}
-		class="text-3xl text-start text-stone-200
-                        bg-stone-800 font-darkGrotBlack
-                        tracking-wide laptop:text-4xl desktop:text-6xl"
+		in:fly={{ x: -40, delay: 1850, duration: 400 }} 
+		class="text-3xl text-start text-stone-200 leading-none align-text-top		
+                        bg-stone-800 font-darkGrotBlack -mt-4
+                         laptop:text-4xl desktop:text-6xl"
 	>
-		Chromie Squiggle
+		Chromie
+		<br class='hidden WQHD:inline'> 
+		Squiggle
+		<br class='hidden WQHD:inline'> 
+
 		<span class="font-darkGrotBlack font-black self-start">
 			<input
 				in:fly={{ x: -30, delay: 2200, duration: 400 }}

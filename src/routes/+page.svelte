@@ -1,11 +1,11 @@
 <script>
 	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
-	//Server Functions
-	import { squigStore } from '$lib/squigStore.js';
-	import { getNewSquig } from './squigGetter/+server.js';
 	import { quadIn } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
+	import { squigStore } from '$lib/squigStore.js';
+	//Server Functions
+	import { getNewSquig } from './squigGetter/+server.js';
 	//UI Components
 	import SquigDetailsSection from './SquigDetailsSection.svelte';
 	import AttributeSection from './AttributeSection.svelte';
@@ -84,7 +84,6 @@
 <svelte:head>
 	<title>🔎 Squiggle Vision</title>
 	<meta name="description" content="Interactive Full Screen Chromie Squiggle Viewer and Explorer">
-
 </svelte:head>
 
 <LoadingScreen />
@@ -97,9 +96,8 @@
 				<div class="place-self-start left-0 top-0">
 					<TitleSection {squigsMinted} bind:squigID={squigID} />
 				</div>
-
 				<div
-					class="justify-self-center w-full h-full overflow-x-hidden z-30	 scroll-smooth desktop:row-span-2"
+					class="justify-self-center w-full h-full overflow-x-hidden z-30	 scroll-smooth desktop:row-span-2 hidebars"
 				>
 					<AttributeSection {isMobile} />
 				</div>
@@ -108,7 +106,6 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- Live Squiggle View-->
 		<div class="basis-5/6 bg-stone-700 relative z-0">
 			<ArrowKeys bind:squigID={squigID} />
@@ -129,3 +126,15 @@
 {:else if isMobile == true}
 	<MobileLanding />
 {/if}
+
+<style>
+    .hidebars::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hidebars {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+</style>

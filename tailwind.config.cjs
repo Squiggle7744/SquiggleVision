@@ -14,6 +14,8 @@ module.exports = {
 
       'desktop': '1920px',
       // => @media (min-width: 1280px) { ... }
+      'QHD': '2560px',
+      'WQHD': '3440px'
     },
     fontFamily: {
       'darkGrot': ['"Darker Grotesque"', 'sans-serif'],
