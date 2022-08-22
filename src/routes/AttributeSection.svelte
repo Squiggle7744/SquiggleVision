@@ -1,5 +1,4 @@
 <script>
-	//import { squigStore } from '../squigStore/+server';
     import { squigStore } from '$lib/squigStore.js'
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
@@ -21,35 +20,34 @@
 </script>
 
 {#if ready == true}
-	<h2
+	<div
 		in:fly={{ x: -20, delay: 2000, duration: 400 }}
-		class="text-3xl text-stone-200 py-5
-bg-stone-800 text-left font-darkGrotBlack sticky"
+		class="subHeader sticky"
 	>
 		Attributes
-	</h2>
+	</div>
 {/if}
 
 {#if ready == true}
 	<div
 		in:fly={{ y: 40, delay: 2200, duration: 400 }}
-		class="grid grid-flow-row row-span-full items-center gap-2 desktop:grid-cols-2"
+		class="grid grid-flow-row row-span-full items-center gap-3 desktop:grid-cols-2"
 	>
 
 		<div class="stats statBlock statBlockHover">
-			<div class="stat">
-				<div class="stat-title attyTitle text-xs desktop:text-base">Type</div>
+			<div class="stat py-3">
+				<div class="stat-title attyTitle QHD:text-base text-xs">Type</div>
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base"
+						class="stat-value attyText text-xs "
 					>
 						{$squigStore.token.token.metadata.features.Type}
 					</div>
 				{:else}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base opacity-0"
+						class="stat-value attyText text-xs QHD:text-base opacity-0"
 					>
 						{$squigStore.token.token.metadata.features.Type}
 					</div>
@@ -59,19 +57,19 @@ bg-stone-800 text-left font-darkGrotBlack sticky"
 		</div>
 
 		<div class="stats statBlock statBlockHover">
-			<div class="stat">
-				<div class="stat-title attyTitle text-xs desktop:text-base">Spectrum</div>
+			<div class="stat py-3">
+				<div class="stat-title attyTitle text-xs QHD:text-base">Spectrum</div>
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base"
+						class="stat-value attyText text-xs QHD:text-base"
 					>
 						{$squigStore.token.token.metadata.features.Spectrum}
 					</div>
 				{:else}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base opacity-0"
+						class="stat-value attyText text-xs QHD:text-base opacity-0"
 					>
 						{$squigStore.token.token.metadata.features.Spectrum}
 					</div>
@@ -81,19 +79,19 @@ bg-stone-800 text-left font-darkGrotBlack sticky"
 		</div>
 
 		<div class="stats statBlock statBlockHover">
-			<div class="stat">
-				<div class="stat-title attyTitle text-xs desktop:text-base">Color Direction</div>
+			<div class="stat py-3">
+				<div class="stat-title attyTitle text-xs QHD:text-base">Color Direction</div>
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base"
+						class="stat-value attyText text-xs QHD:text-base"
 					>
 						{$squigStore.token.token.metadata.features['Color Direction']}
 					</div>
 				{:else}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base opacity-0"
+						class="stat-value attyText text-xs QHD:text-base opacity-0"
 					>
 						{$squigStore.token.token.metadata.features['Color Direction']}
 					</div>
@@ -104,19 +102,19 @@ bg-stone-800 text-left font-darkGrotBlack sticky"
 
         {#if isMobile == false}
 		<div class="stats statBlock statBlockHover">
-			<div class="stat">
-				<div class="stat-title attyTitle text-xs desktop:text-base">Height</div>
+			<div class="stat py-3">
+				<div class="stat-title attyTitle text-xs QHD:text-base">Height</div>
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base"
+						class="stat-value attyText text-xs QHD:text-base"
 					>
 						{$squigStore.token.token.metadata.features.Height}
 					</div>
 				{:else}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base opacity-0"
+						class="stat-value attyText text-xs QHD:text-base opacity-0"
 					>
 						{$squigStore.token.token.metadata.features.Height}
 					</div>
@@ -126,19 +124,19 @@ bg-stone-800 text-left font-darkGrotBlack sticky"
 		</div>
 
 		<div class="stats statBlock statBlockHover">
-			<div class="stat">
-				<div class="stat-title attyTitle text-xs desktop:text-base">Segments</div>
+			<div class="stat py-3">
+				<div class="stat-title attyTitle text-xs QHD:text-base">Segments</div>
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base"
+						class="stat-value attyText text-xs QHD:text-base"
 					>
 						{$squigStore.token.token.metadata.features.Segments}
 					</div>
 				{:else}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base opacity-0"
+						class="stat-value attyText text-xs QHD:text-base opacity-0"
 					>
 						{$squigStore.token.token.metadata.features.Segments}
 					</div>
@@ -148,19 +146,19 @@ bg-stone-800 text-left font-darkGrotBlack sticky"
 		</div>
 
 		<div class="stats statBlock statBlockHover">
-			<div class="stat">
-				<div class="stat-title attyTitle text-xs desktop:text-base">Steps Between</div>
+			<div class="stat py-3">
+				<div class="stat-title attyTitle text-xs QHD:text-base">Steps Between</div>
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base"
+						class="stat-value attyText text-xs QHD:text-base"
 					>
 						{$squigStore.token.token.metadata.features['Steps Between']}
 					</div>
 				{:else}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base opacity-0"
+						class="stat-value attyText text-xs QHD:text-base opacity-0"
 					>
 						{$squigStore.token.token.metadata.features['Steps Between']}
 					</div>
@@ -170,19 +168,19 @@ bg-stone-800 text-left font-darkGrotBlack sticky"
 		</div>
 
 		<div class="stats statBlock statBlockHover">
-			<div class="stat">
-				<div class="stat-title attyTitle text-xs desktop:text-base">Start Color</div>
+			<div class="stat py-3">
+				<div class="stat-title attyTitle text-xs QHD:text-base">Start Color</div>
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base"
+						class="stat-value attyText text-xs QHD:text-base"
 					>
 						{$squigStore.token.token.metadata.features['Start Color']}
 					</div>
 				{:else}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base opacity-0"
+						class="stat-value attyText text-xs QHD:text-base opacity-0"
 					>
 						{$squigStore.token.token.metadata.features['Start Color']}
 					</div>
@@ -192,19 +190,19 @@ bg-stone-800 text-left font-darkGrotBlack sticky"
 		</div>
 
 		<div class="stats statBlock statBlockHover">
-			<div class="stat">
-				<div class="stat-title attyTitle text-xs desktop:text-base">End Color</div>
+			<div class="stat py-3">
+				<div class="stat-title attyTitle text-xs QHD:text-base">End Color</div>
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base"
+						class="stat-value attyText text-xs QHD:text-base"
 					>
 						{$squigStore.token.token.metadata.features['End Color']}
 					</div>
 				{:else}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base opacity-0"
+						class="stat-value attyText text-xs QHD:text-base opacity-0"
 					>
 						{$squigStore.token.token.metadata.features['End Color']}
 					</div>
@@ -214,19 +212,19 @@ bg-stone-800 text-left font-darkGrotBlack sticky"
 		</div>
 
 		<div class="stats statBlock statBlockHover">
-			<div class="stat">
-				<div class="stat-title attyTitle text-xs desktop:text-base">Color Spread</div>
+			<div class="stat py-3">
+				<div class="stat-title attyTitle text-xs QHD:text-base">Color Spread</div>
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base"
+						class="stat-value attyText text-xs QHD:text-base"
 					>
 						{$squigStore.token.token.metadata.features['Color Spread']}
 					</div>
 				{:else}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs desktop:text-base opacity-0"
+						class="stat-value attyText text-xs QHD:text-base opacity-0"
 					>
 						{$squigStore.token.token.metadata.features['Color Spread']}
 					</div>
@@ -253,3 +251,4 @@ bg-stone-800 text-left font-darkGrotBlack sticky"
 		{/if}
 	</div>
 {/if}
+
