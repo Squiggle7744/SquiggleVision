@@ -7,3 +7,4 @@ node_modules
 .env.*
 !.env.example
 env/static/private/process.env
+tsconfig.json

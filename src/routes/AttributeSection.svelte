@@ -40,7 +40,7 @@
 				{#if reloadAttributes == 1}
 					<div
 						in:fly={{ x: -20, duration: 400 }}
-						class="stat-value attyText text-xs "
+						class="stat-value attyText text-xs QHD:text-base"
 					>
 						{$squigStore.token.token.metadata.features.Type}
 					</div>
