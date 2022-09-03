@@ -37,43 +37,98 @@
 </script>
 
 {#if ready == true}
-    <div class="justify-between text-left overflow-hidden">
+    <div class="justify-between text-left overflow-visible">
+        
+        <!-- Section Title -->
         <h2 transition:fly="{{ x: -40, delay: 2000, duration: 400 }}" class="subHeader">
             #{$squigStore.token.token.metadata.tokenID} Provenance
         </h2>
-        <p transition:fly="{{ x: -40, delay: 2000, duration: 400 }}" class="text-lg font-darkGrot text-stone-300">Minted By:</p>
+
+        <!-- Minter Label -->
+        <p transition:fly="{{ x: -40, delay: 2000, duration: 400 }}" 
+        class="text-lg font-darkGrot text-stone-200 mb-2">Minter 💎</p>
+        
+        <!-- Check for Minter ENS -->
         {#if dataLoad == true}
+
+            <!-- Skeleton Loader -->
             {#if minterChecked == 0}
-                <div class="skeletonText"></div>
+            <strong class="inline-flex items-center bg-stone-100 px-5 py-1.5 rounded-lg 
+                tranHover">
+                    <span class="text-[12px] font-medium">
+                        <div class="skeletonText"></div>
+                    </span>
+                </strong>
+
+            <!-- ENS Found -->
             {:else if minterChecked == 1}
                 <a href="https://etherscan.io/address/{ENS.minterAddress}">
-                    <p in:fly="{{ y: 25, duration: 400 }}" 
-                    class="delay-200 baseUrl">
-                    {ENS.minterAddress}</p>
+                    <strong class="inline-flex items-center bg-stone-100 px-5 py-1.5 rounded-lg 
+                tranHover">
+                    <span class="text-[12px] font-medium ">
+                        <p in:fly="{{ y: 25, duration: 400 }}" 
+                        class="delay-200 text-stone-800 baseUrl">
+                        {ENS.minterAddress}</p>
+                    </span>
+                </strong>
                 </a>
+
+            <!-- No ENS found, display default 0x Address -->
             {:else if minterChecked == 2}
-                <a href="https://etherscan.io/address/{$squigStore.token.token.mintInfo.toAddress}">
-                    <p in:fly="{{ y: 25, duration: 400 }}" 
-                    class=" baseUrl">
-                    {$squigStore.token.token.mintInfo.toAddress.substring(0,15) + "..."}</p>
-                </a>
+            <a href="https://etherscan.io/address/{$squigStore.token.token.mintInfo.toAddress}"
+            class='relative flex transition '>
+                <strong class="inline-flex items-center bg-stone-100 px-5 py-1.5 rounded-lg 
+                tranHover">
+                    <span class="text-[12px] font-medium ">
+                        <p in:fly="{{ y: 25, duration: 400 }}" 
+                        class="text-stone-800 baseUrl">
+                        {$squigStore.token.token.mintInfo.toAddress.substring(0,15) + "..."}</p>
+                    </span>
+                </strong>
+            </a>
             {/if}
         {/if}
-        <p transition:fly="{{ x: -40, delay: 2000, duration: 400 }}" class="font-darkGrot text-stone-300">Owned By:</p>
+
+        <!-- Owner Label -->
+        <p transition:fly="{{ x: -40, delay: 2000, duration: 400 }}" 
+        class="font-darkGrot text-stone-200  my-2">Owner 🙌</p>
+        
+        <!-- Check for Owner ENS -->
         {#if dataLoad == true}
+        
+            <!-- Skeleton Loader -->
             {#if ownerChecked == 0}
-            <div class="skeletonText"></div>
+            <strong class="inline-flex items-center bg-stone-100 px-5 py-1.5 rounded-lg 
+                tranHover">
+                    <span class="text-[12px] font-medium ">
+                        <div class="skeletonText"></div>
+                    </span>
+                </strong>
+
+            <!-- ENS Found -->
             {:else if ownerChecked == 1}
             <a href="https://etherscan.io/address/{ENS.ownerAddress}">
-                <p in:fly="{{ y: 25, duration: 400 }}" 
-                class="baseUrl">
-                {ENS.ownerAddress}</p>     
+                <strong class="inline-flex items-center bg-stone-100 px-5 py-1.5 rounded-lg 
+                tranHover">
+                    <span class="text-[12px] font-medium ">
+                        <p in:fly="{{ y: 25, duration: 400 }}" 
+                        class="text-stone-800 baseUrl">
+                        {ENS.ownerAddress}</p>     
+                    </span>
+                </strong>
             </a>
+            
+            <!-- No ENS found, display default 0x Address -->
             {:else if ownerChecked == 2}
             <a href="https://etherscan.io/address/{$squigStore.token.token.owner}">
-                <p in:fly="{{ y: 25, duration: 400 }}" 
-                class="baseUrl">
-                {$squigStore.token.token.owner.substring(0,15) + "..."}</p>
+                <strong class="inline-flex items-center bg-stone-100 px-5 py-1.5 rounded-lg 
+                tranHover">
+                    <span class="text-[12px] font-medium ">
+                        <p in:fly="{{ y: 25, duration: 400 }}" 
+                        class="text-stone-800 baseUrl">
+                        {$squigStore.token.token.owner.substring(0,15) + "..."}</p>
+                    </span>
+                </strong>
             </a>
             {/if}
         {/if}

@@ -1,6 +1,7 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import dieSalute from '$lib/dieSalute.png'
 
 	let firstLoad = false;
 	export let squigsMinted
@@ -26,8 +27,9 @@
 		<br class='hidden WQHD:inline'> 
 		Squiggle
 		<br class='hidden WQHD:inline'> 
+	</h1>
 
-		<span class="font-darkGrotBlack font-black self-start">
+		<div class="grid grid-cols-2 grid-rows-1 font-darkGrotBlack font-black self-start mt-4">
 			<input
 				in:fly={{ x: -30, delay: 2200, duration: 400 }}
 				type="number"
@@ -36,20 +38,25 @@
 				placeholder={squigID}
 				class="input input-ghost input-md appearance-none	
                             text-stone-400 bg-stone-700 laptop:mt-2
-                            laptop:w-3/4 desktop:w-1/2 laptop:text-2xl desktop:text-3xl	
+                            laptop:w-3/4 desktop:w-full laptop:text-2xl desktop:text-3xl	
                             font-darkGrot text-center
                             hover:bg-stone-900 hover:text-stone-700"
 			/>
-			<button
+			<!-- <button
 				in:fly={{ x: 30, delay: 2500, duration: 400 }}
 				on:click={rnjesus}
 				type="button"
 				class="btn btn-ghost font-darkGrotBlack bg-stone-900 laptop:mt-2
                     laptop:text-xl desktop:text-2xl laptop:w-1/2 desktop:w-1/4"
-				>🎲</button
-			>
-		</span>
-	</h1>
+				>🎲
+			</button> -->
+			<button 
+			in:fly={{ x: 30, delay: 2500, duration: 400 }} 
+			on:click={rnjesus}
+			class='bottom-0 w-full'>
+				<img src={dieSalute} alt='dieSalute' width=75 class='pl-4'>
+			</button>
+		</div>
 {/if}
 
 <style>

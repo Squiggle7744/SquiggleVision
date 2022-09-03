@@ -22,5 +22,8 @@
     @apply text-xl align-text-bottom text-stone-200 pb-3
     bg-stone-800 text-left font-darkGrot laptop:text-2xl desktop:text-3xl
 }
+.tranHover {
+    @apply transition hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0_0_#000]
+}
 @tailwind utilities;
 @tailwind typography;

@@ -19,7 +19,9 @@
 	export let data;
 	squigStore.set(data);
 
+	//Number of Squigs Currently Minted 
 	const squigsMinted = 9675;
+
 	let squigID = $squigStore.token.token.metadata.tokenID;
 	let ready = false;
 	let timer;
@@ -92,7 +94,7 @@
 	<div class="flex flex-row h-screen bg-stone-800">
 		<!-- Left Column Bar -->
 		<div class="basis-1/6 h-auto shadow-lg">
-			<div class="grid grid-rows-3 place-items-center items-start	p-6 h-full overflow-hidden">
+			<div class="grid grid-rows-auto place-items-center items-start	p-6 h-full overflow-hidden">
 				<div class="place-self-start left-0 top-0">
 					<TitleSection {squigsMinted} bind:squigID={squigID} />
 				</div>
@@ -107,22 +109,24 @@
 			</div>
 		</div>
 		<!-- Live Squiggle View-->
-		<div class="basis-5/6 bg-stone-700 relative z-0">
+		<div class="basis-5/6 bg-white relative z-0">
 			<ArrowKeys bind:squigID={squigID} />
 			{#if ready}
 				<div
 					in:fade={{ duration: 1000, easing: quadIn }}
-					class="relative overflow-hidden w-full h-screen z-0 "
+					class="relative overflow-hidden w-full h-screen z-0 rounded-2xl"
 				>
 					<iframe
 						title="Live Squiggle View"
-						class="absolute w-full h-screen"
+						class="absolute w-full h-screen "
 						src={$squigStore.token.token.metadata.generator_url}
 					/>
 				</div>
 			{/if}
 		</div>
 	</div>
+	
+<!-- Mobile Landing page -->
 {:else if isMobile == true}
 	<MobileLanding />
 {/if}
