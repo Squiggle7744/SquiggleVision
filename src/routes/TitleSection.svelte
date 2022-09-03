@@ -54,7 +54,7 @@
 			in:fly={{ x: 30, delay: 2500, duration: 400 }} 
 			on:click={rnjesus}
 			class='bottom-0 w-full'>
-				<img src={dieSalute} alt='dieSalute' width=75 class='pl-4'>
+				<img src={dieSalute} alt='dieSalute' width=64 class='pl-4'>
 			</button>
 		</div>
 {/if}
