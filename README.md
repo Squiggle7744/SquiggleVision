@@ -4,7 +4,7 @@ Squigs.xyz is a full-screen squiggle discovery and viewing experience.
 
 ## Motivations
 
-Most interfaces used to browse Chromie Squiggles, including the native [Artblocks.io](http://Artblocks.io) interface, are relatively high-friction to access and don’t always display all of the relevant information. Additionally, external sites like OpenSea/LooksRare/Archipelago/SquiggleDAO all adopt a grid-based view, despite the squiggles’ display agnostic properties. SquiggleVision provides a clean, minimalistic interface for browsing squiggles without the need for a clunky interface full of dropdowns and needless searching.
+Most interfaces used to browse Chromie Squiggles, including the native [Artblocks.io](http://Artblocks.io) interface, are relatively high-friction to access and don’t always display all of the relevant information. Additionally, external sites like OpenSea/LooksRare/Archipelago/SquiggleDAO all adopt a grid-based view, despite the squiggles’ display agnostic properties. Squigs.xyz provides a clean, minimalistic interface for browsing squiggles without the need for a clunky interface full of dropdowns and needless searching.
 
 # Features
 
