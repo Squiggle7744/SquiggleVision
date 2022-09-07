@@ -1,6 +1,6 @@
 # About
 
-SquiggleVision is a superior full-screen squiggle discovery and viewing experience that is currently desktop-only.
+Squigs.xyz is a full-screen squiggle discovery and viewing experience.
 
 ## Motivations
 
@@ -20,7 +20,7 @@ Most interfaces used to browse Chromie Squiggles, including the native [Artblock
 
 ## Keyboard Navigation
 
-`r` for random `up`, `right` for next squiggle `down`, `left` for previous squiggle
+Press `r` for random squiggle. Or use wasd/arrow keys to move between them sequentially.
 
 # Looking Forward
 
