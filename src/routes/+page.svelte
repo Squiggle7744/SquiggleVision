@@ -35,18 +35,30 @@
 		//keyboard functionality
 		document.onkeyup = function (e) {
 			switch (e.key) {
+				case 'a':
+					squigID--;
+					break;
 				case 'ArrowLeft':
 					squigID--;
+					break;
+				case 'd':
+					squigID++;
 					break;
 				case 'ArrowRight':
 					squigID++;
 					break;
+				case 's':
+					squigID--;
+					break;
 				case 'ArrowDown':
 					squigID--;
 					break;
-				case 'ArrowUp':
+				case 'w':
 					squigID++;
 					break;
+				case 'ArrowUp':
+					squigID++;
+					break;r
 				case 'r': //get random squiggle
 					squigID = Math.floor(Math.random() * squigsMinted);
 			}
