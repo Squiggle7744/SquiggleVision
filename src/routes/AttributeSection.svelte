@@ -63,20 +63,17 @@
 		{#if $squigStore.token.token.metadata.tokenID == 7744}
 			<div
 				in:fly={{ y: 40, delay: 250, duration: 400 }}
-				class="stats statBlock statBlockHover  h-full place-items-stretch cursor-pointer 
-				bg-gradient-to-r from-yellow-200 to-yellow-500"
+				class="stats statBlock statBlockHover h-full content-center	 cursor-pointer 
+				bg-gradient-to-r from-yellow-200 to-yellow-500 tranHover"
 			>
 				<label
 					for="my-modal-4"
 					class="modal-button bg-transparent border-transparent place-self-stretch	
         			text-white text-sm cursor-pointer">
+					
 					<div 
-					class="stat-title attyTitle cursor-pointer invisible">
-						About
-					</div>
-					<div 
-					class="stat-value attyText text-xs  desktop:text-base text-stone-700">
-						Gm, anon.
+					class="stat-value attyText text-xs desktop:text-base text-stone-700">
+						ABOUT.
 					</div>
 				</label>
 			</div>
