@@ -11,8 +11,6 @@
 	import AttributeSection from './AttributeSection.svelte';
 	import LoadingScreen from './loadingScreen.svelte';
 	import TitleSection from './TitleSection.svelte';
-	import MobileLanding from './mobileLanding.svelte';
-	import LiveView from './liveView.svelte';
 	import ArrowKeys from './ArrowKeys.svelte';
 
 	//import initial random squig from +page.server.js
@@ -97,17 +95,20 @@
 
 
 <LoadingScreen />
-
-{#if isMobile == false}
-	<div class="flex flex-row h-screen bg-stone-800">
-		<!-- Left Column Bar -->
+<!-- 
+{#if isMobile == false} -->
+	<div class="flex flex-col mobile:flex-row h-screen bg-stone-800">
+		<!-- Left Column Bar - Desktop Only -->
+		{#if isMobile == false}
 		<div class="basis-1/6 h-auto shadow-lg">
-			<div class="grid grid-rows-auto place-items-center items-start	p-6 h-full overflow-hidden">
-				<div class="place-self-start left-0 top-0">
-					<TitleSection {squigsMinted} bind:squigID={squigID} />
+			<!-- Sectional Elements -->
+			<div class="grid grid-rows-auto place-items-center items-start p-6 h-full overflow-hidden">
+				<div class="place-self-start left-0 top-0 mobile:mb-6">
+					<TitleSection {squigsMinted} {isMobile} bind:squigID={squigID} />
 				</div>
 				<div
-					class="justify-self-center w-full h-full overflow-x-hidden z-30	 scroll-smooth desktop:row-span-2 hidebars"
+					class="justify-self-center w-full h-full overflow-x-hidden z-30	
+					scroll-smooth desktop:row-span-2 hidebars"
 				>
 					<AttributeSection {isMobile} />
 				</div>
@@ -116,13 +117,15 @@
 				</div>
 			</div>
 		</div>
+		{/if}
+
 		<!-- Live Squiggle View-->
-		<div class="basis-5/6 bg-white relative z-0">
+		<div class="basis-5/6 bg-white relative z-0 order-2">
 			<ArrowKeys bind:squigID={squigID} />
 			{#if ready}
 				<div
 					in:fade={{ duration: 1000, easing: quadIn }}
-					class="relative overflow-hidden w-full h-screen z-0 rounded-2xl"
+					class="relative overflow-hidden w-full h-screen z-0 "
 				>
 					<iframe
 						title="Live Squiggle View"
@@ -132,12 +135,28 @@
 				</div>
 			{/if}
 		</div>
-	</div>
 
-<!-- Mobile Landing page -->
-{:else if isMobile == true}
-	<MobileLanding />
-{/if}
+		<!-- Mobile Navbar -->
+		{#if isMobile == true}
+		<div class="flex items-center left-0 top-0 bg-stone-800 fixed z-40 order-1">
+			<TitleSection {squigsMinted} {isMobile} bind:squigID={squigID} />
+		</div>
+		<div class="bg-stone-800 order-3">
+			<!-- Sectional Elements -->
+			<div class="grid grid-cols-1 place-items-center items-start	p-6 h-auto overflow-hidden">
+				<div
+					class="justify-self-center w-full h-full overflow-x-hidden z-30	 scroll-smooth desktop:row-span-2 hidebars"
+				>
+					<AttributeSection {isMobile} />
+				</div>
+				<div class="place-self-end mt-4 justify-self-start w-full z-20  bg-stone-800">
+					<SquigDetailsSection />
+				</div>
+			</div>
+		</div>
+		{/if}
+
+	</div>
 
 <style>
     .hidebars::-webkit-scrollbar {

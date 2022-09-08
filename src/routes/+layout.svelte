@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-    <title>🔎 Squiggle Vision</title>
+    <title>🔎 Squigs.xyz</title>
 </svelte:head>
 
 <slot />

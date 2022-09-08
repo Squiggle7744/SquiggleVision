@@ -25,7 +25,7 @@
 {#if ready == true}
 	<div
 		in:fly={{ x: -20, delay: 2000, duration: 400 }}
-		class="subHeader z-20 relative py-4 lg:relative w-full"
+		class="subHeader z-20 pb-6 w-full sticky top-0"
 	>
 		Attributes
 	</div>
@@ -34,10 +34,10 @@
 {#if ready == true}
 	<div
 		in:fly={{ y: 40, delay: 2200, duration: 400 }}
-		class="grid grid-flow-row row-span-full items-center gap-3 
+		class="grid grid-cols-2 mobile:grid-cols-1 mobile:grid-flow-row mobile:row-span-full items-center gap-3 
 		desktop:grid-cols-2">
 		{#each attArray as feature}
-			<div class="stats statBlock statBlockHover">
+			<div class="stats statBlock statBlockHover bg-stone-400">
 				<div class="stat py-3">
 					<div class="stat-title attyTitle QHD:text-base text-xs">{feature}</div>
 					{#if reloadAttributes == 1}

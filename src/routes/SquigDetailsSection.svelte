@@ -40,7 +40,8 @@
     <div class="justify-between text-left overflow-visible">
         
         <!-- Section Title -->
-        <h2 transition:fly="{{ x: -40, delay: 2000, duration: 400 }}" class="subHeader">
+        <h2 transition:fly="{{ x: -40, delay: 2000, duration: 400 }}" 
+        class="subHeader mt-6">
             #{$squigStore.token.token.metadata.tokenID} Provenance
         </h2>
 
