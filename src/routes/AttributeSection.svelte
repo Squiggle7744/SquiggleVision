@@ -71,8 +71,8 @@
 					class="modal-button bg-transparent border-transparent place-self-stretch	
         			text-white text-sm cursor-pointer">
 					
-					<div 
-					class="stat-value attyText text-xs desktop:text-base text-stone-700">
+					<div
+					class="stat-value attyText text-xs about desktop:text-base text-stone-700">
 						ABOUT.
 					</div>
 				</label>
@@ -81,3 +81,6 @@
 	</div>
 {/if}
 
+<style>
+
+</style>

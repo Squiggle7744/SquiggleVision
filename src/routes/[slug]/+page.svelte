@@ -5,13 +5,14 @@
 	import { fade } from 'svelte/transition';
 	import { squigStore } from '$lib/squigStore.js';
 	//Server Functions
-	import { getNewSquig } from './squigGetter/+server.js';
+	import { page } from '$app/stores';
+	import { getNewSquig } from '../squigGetter/+server';
 	//UI Components
-	import SquigDetailsSection from './SquigDetailsSection.svelte';
-	import AttributeSection from './AttributeSection.svelte';
-	import LoadingScreen from './loadingScreen.svelte';
-	import TitleSection from './TitleSection.svelte';
-	import ArrowKeys from './ArrowKeys.svelte';
+	import SquigDetailsSection from '../SquigDetailsSection.svelte';
+	import AttributeSection from '../AttributeSection.svelte';
+	import LoadingScreen from '../loadingScreen.svelte';
+	import TitleSection from '../TitleSection.svelte';
+	import ArrowKeys from '../ArrowKeys.svelte';
 
 	//import initial random squig from +page.server.js
 	export let data;
@@ -24,7 +25,8 @@
 	let ready = false;
 	let timer;
 	let isMobile = false;
-	let firstLoad = false
+
+    $page.params.slug
 
 	onMount(() => {
 		ready = true;
