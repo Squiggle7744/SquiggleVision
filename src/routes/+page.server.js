@@ -3,8 +3,6 @@ import { GraphQLClient } from 'graphql-request';
 import { ZORA_API_KEY } from '$env/static/private';
 import { getSquigByAttribute } from '$lib/relatedSquigFetcher'
 
-import DataFrame from 'dataframe-js';
-
 export const client = new GraphQLClient('https://api.zora.co/graphql', {
 	'X-API-KEY': ZORA_API_KEY
 });
