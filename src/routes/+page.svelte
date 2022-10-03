@@ -17,14 +17,14 @@
 	export let data;
 	squigStore.set(data);
 
-	//Number of Squigs Currently Minted 
+	//Number of Squigs Currently Minted
 	const squigsMinted = 9675;
 
 	let squigID = $squigStore.token.token.metadata.tokenID;
 	let ready = false;
 	let timer;
 	let isMobile = false;
-	let firstLoad = false
+	let firstLoad = false;
 
 	onMount(() => {
 		ready = true;
@@ -56,7 +56,8 @@
 					break;
 				case 'ArrowUp':
 					squigID++;
-					break;r
+					break;
+					r;
 				case 'r': //get random squiggle
 					squigID = Math.floor(Math.random() * squigsMinted);
 			}
@@ -93,79 +94,77 @@
 	}
 </script>
 
-
 <LoadingScreen />
-<!-- 
-{#if isMobile == false} -->
-	<div class="flex flex-col mobile:flex-row h-screen bg-stone-800">
-		<!-- Left Column Bar - Desktop Only -->
-		{#if isMobile == false}
+
+
+<div class="flex flex-col mobile:flex-row h-screen bg-stone-800">
+	<!-- Left Column Bar - Desktop Only -->
+	{#if isMobile == false}
 		<div class="basis-1/6 h-auto shadow-lg">
 			<!-- Sectional Elements -->
-			<div class="grid grid-rows-auto place-items-center items-start p-6 h-full overflow-hidden">
+			<div class="grid grid-rows-auto place-items-center items-start p-6 h-full">
 				<div class="place-self-start left-0 top-0 mobile:mb-6">
-					<TitleSection {squigsMinted} {isMobile} bind:squigID={squigID} />
+					<TitleSection {squigsMinted} {isMobile} bind:squigID />
 				</div>
 				<div
-					class="justify-self-center w-full h-full overflow-y-hidden z-30	
+					class="justify-self-center w-full h-full overflow-y-scroll overflow-x-visible z-30	
 					scroll-smooth desktop:row-span-2 hidebars"
 				>
-					<AttributeSection {isMobile} bind:squigID={squigID} />
+					<AttributeSection {isMobile} bind:squigID />
 				</div>
 				<div class="place-self-end justify-self-start w-full z-40  bg-stone-800">
 					<SquigDetailsSection />
 				</div>
 			</div>
 		</div>
+	{/if}
+
+	<!-- Live Squiggle View-->
+	<div class="basis-5/6 bg-white relative z-0 order-2">
+		<ArrowKeys bind:squigID />
+		{#if ready}
+			<div
+				in:fade={{ duration: 1000, easing: quadIn }}
+				class="relative overflow-hidden w-full h-screen z-0 "
+			>
+				<iframe
+					title="Live Squiggle View"
+					class="absolute w-full h-screen "
+					src={$squigStore.token.token.metadata.generator_url}
+				/>
+			</div>
 		{/if}
+	</div>
 
-		<!-- Live Squiggle View-->
-		<div class="basis-5/6 bg-white relative z-0 order-2">
-			<ArrowKeys bind:squigID={squigID} />
-			{#if ready}
-				<div
-					in:fade={{ duration: 1000, easing: quadIn }}
-					class="relative overflow-hidden w-full h-screen z-0 "
-				>
-					<iframe
-						title="Live Squiggle View"
-						class="absolute w-full h-screen "
-						src={$squigStore.token.token.metadata.generator_url}
-					/>
-				</div>
-			{/if}
-		</div>
-
-		<!-- Mobile Section -->
-		{#if isMobile == true}
+	<!-- Mobile Section -->
+	{#if isMobile == true}
 		<div class="flex items-center left-0 top-0 bg-stone-800 fixed z-40 order-1">
-			<TitleSection {squigsMinted} {isMobile} bind:squigID={squigID} />
+			<TitleSection {squigsMinted} {isMobile} bind:squigID />
 		</div>
-		<div class="bg-stone-800 order-3">
+		<div class="bg-stone-800 order-3 overflow-x-visible">
 			<!-- Sectional Elements -->
-			<div class="grid grid-cols-1 place-items-center items-start	p-6 h-auto overflow-hidden">
+			<div class="grid grid-cols-1 place-items-center items-start	p-6 h-auto overflow-x-visible">
 				<div
-					class="justify-self-center w-full h-full overflow-x-hidden z-30	 scroll-smooth desktop:row-span-2 hidebars"
+					class="justify-self-center w-full h-full overflow-y-scroll overflow-x-visible z-30 scroll-smooth desktop:row-span-2 hidebars"
 				>
-					<AttributeSection {isMobile} />
+					<AttributeSection {isMobile} bind:squigID />
 				</div>
 				<div class="place-self-end mt-4 justify-self-start w-full z-20  bg-stone-800">
 					<SquigDetailsSection />
 				</div>
 			</div>
 		</div>
-		{/if}
-
-	</div>
+	{/if}
+</div>
 
 <style>
-    .hidebars::-webkit-scrollbar {
-  display: none;
-}
+	.hidebars::-webkit-scrollbar {
+		display: none;
+	}
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.hidebars {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
+	/* Hide scrollbar for IE, Edge and Firefox */
+	.hidebars {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
 </style>

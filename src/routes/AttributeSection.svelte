@@ -31,9 +31,32 @@
 		'Color Spread'
 	];
 
-	console.log($squigStore)
+	const colorArray = [
+		'hover:bg-pink-400',
+		'hover:bg-red-400',
+		'hover:bg-orange-400',
+		'hover:bg-yellow-400',
+		'hover:bg-emerald-400',
+		'hover:bg-cyan-400',
+		'hover:bg-sky-400',
+		'hover:bg-violet-400',
+		'hover:bg-fuchsia-400'
+	];
+	const activeColorArray = [
+		'active:bg-pink-200',
+		'active:bg-red-200',
+		'active:bg-orange-200',
+		'active:bg-yellow-200',
+		'active:bg-emerald-200',
+		'active:bg-cyan-200',
+		'active:bg-sky-200',
+		'active:bg-violet-200',
+		'active:bg-fuchsia-200'
+	];
+
+	console.log($squigStore);
 	function getRelated(feature) {
-		squigID = $squigStore.reLinkIDs[feature]
+		squigID = $squigStore.reLinkIDs[feature];
 	}
 </script>
 
@@ -49,38 +72,43 @@
 {#if ready == true}
 	<div
 		in:fly={{ y: 40, delay: 2200, duration: 400 }}
-		class="grid grid-cols-2 mobile:grid-cols-1 mobile:grid-flow-row mobile:row-span-full items-center gap-3 
-		desktop:grid-cols-2"
+		class="grid grid-cols-2 mobile:grid-cols-1 mobile:grid-flow-row 
+		mobile:row-span-full items-center gap-3 desktop:grid-cols-2"
 	>
-		{#each attArray as feature}
-				<button on:click={() => getRelated(feature)} class="stats statBlock statBlockHover bg-stone-400 shadow-[6px_6px_0_0_#555] transition hover:shadow-none focus:outline-none focus:ring active:bg-stone-50">
-					<div class="stat py-3">
-						<div class="stat-title attyTitle QHD:text-base text-xs">{feature}</div>
-						{#if reloadAttributes == 1}
-							<div
-								in:fly={{ x: -20, duration: 400 }}
-								class="stat-value attyText text-xs QHD:text-base"
-							>
-								{$squigStore.token.token.metadata.features[feature]}
-							</div>
-						{:else}
-							<div
-								in:fly={{ x: -20, duration: 400 }}
-								class="stat-value attyText text-xs QHD:text-base opacity-0"
-							>
-								{$squigStore.token.token.metadata.features[feature]}
-							</div>
-						{/if}
-						<div class="stat-desc" />
-					</div>
-				</button>
+		{#each attArray as feature, i}
+			<button
+				on:click={() => getRelated(feature)}
+				class="stats statBlock statBlockHover bg-stone-400 {colorArray[i]}
+					transition hover:shadow-none 
+					focus:outline-none focus:ring {activeColorArray[i]}"
+			>
+				<div class="stat py-3">
+					<div class="stat-title attyTitle QHD:text-base text-xs">{feature}</div>
+					{#if reloadAttributes == 1}
+						<div
+							in:fly={{ x: -20, duration: 400 }}
+							class="stat-value attyText text-xs QHD:text-base"
+						>
+							{$squigStore.token.token.metadata.features[feature]}
+						</div>
+					{:else}
+						<div
+							in:fly={{ x: -20, duration: 400 }}
+							class="stat-value attyText text-xs QHD:text-base opacity-0"
+						>
+							{$squigStore.token.token.metadata.features[feature]}
+						</div>
+					{/if}
+					<div class="stat-desc" />
+				</div>
+			</button>
 		{/each}
 
 		{#if $squigStore.token.token.metadata.tokenID == 7744}
 			<div
 				in:fly={{ y: 40, delay: 250, duration: 400 }}
 				class="stats statBlock statBlockHover h-full content-center	 cursor-pointer 
-				bg-gradient-to-r from-yellow-200 to-yellow-500 tranHover"
+				specBtn tranHover"
 			>
 				<label
 					for="my-modal-4"
@@ -88,7 +116,7 @@
         			text-white text-sm cursor-pointer"
 				>
 					<div class="stat-value attyText text-xs about desktop:text-base text-stone-700">
-						ABOUT.
+						about
 					</div>
 				</label>
 			</div>
@@ -97,4 +125,8 @@
 {/if}
 
 <style>
+	.specBtn {
+        background-color: rgb(231, 229, 228);
+        background-image: radial-gradient(at 71% 88%, rgb(245, 243, 255) 0, transparent 58%), radial-gradient(at 9% 13%, rgb(254, 242, 242) 0, transparent 97%), radial-gradient(at 18% 44%, rgb(34, 211, 238) 0, transparent 86%), radial-gradient(at 7% 27%, rgb(255, 255, 255) 0, transparent 88%), radial-gradient(at 40% 90%, rgb(112, 26, 117) 0, transparent 42%), radial-gradient(at 41% 44%, rgb(29, 78, 216) 0, transparent 63%);
+      	}
 </style>
