@@ -1,12 +1,25 @@
 import { gql } from 'graphql-request';
 import { GraphQLClient } from 'graphql-request';
 import { ZORA_API_KEY } from '$env/static/private';
+import { getSquigByAttribute } from '$lib/relatedSquigFetcher'
 
+import DataFrame from 'dataframe-js';
 
 export const client = new GraphQLClient('https://api.zora.co/graphql', {
-    "X-API-KEY": ZORA_API_KEY
-})
+	'X-API-KEY': ZORA_API_KEY
+});
 
+const attArray = [
+	'Type',
+	'Spectrum',
+	'Color Direction',
+	'Height',
+	'Segments',
+	'Steps Between',
+	'Start Color',
+	'End Color',
+	'Color Spread'
+];
 
 //get squig metadata from Zora, default returns random squig
 export const load = async (tokenId) => {
@@ -35,10 +48,36 @@ export const load = async (tokenId) => {
           }
         }        
     `;
-    
+
 		const squig = await client.request(query);
+
+		let reLinkIDs = {
+			Type: '',
+			Spectrum: '',
+			'Color Direction': '',
+			Height: '',
+			Segments: '',
+			'Steps Between': '',
+			//CSV does not have below data yet. Replace when updated.
+      'Start Color': '/',
+			'End Color': '/',
+			//CSV does not have above data yet. Replace when updated.
+      'Color Spread': ''
+		};
+
+		for (let i = 0; i < attArray.length; i++) {
+			let attTitle = attArray[i];
+			let reLinkID = await getSquigByAttribute(
+				attArray[i],
+				squig.token.token.metadata.features[attArray[i]]
+			);
+			reLinkIDs[attTitle] = reLinkID
+		}
+
+    squig.reLinkIDs = reLinkIDs
+
 		return squig;
 	} catch (error) {
-    console.log('throwing error')
+		console.log('throwing error');
 	}
 };

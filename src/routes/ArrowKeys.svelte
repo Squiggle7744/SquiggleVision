@@ -1,10 +1,8 @@
 <script>
-    import { squigStore } from '$lib/squigStore.js';
-
 	export let squigID;
 
-	let squigDown = () => squigID--
-	let squigUp = () => squigID++
+	const squigDown = () => squigID--
+	const squigUp = () => squigID++
 </script>
 
 <button on:click={squigDown} class="button pl-5 absolute inset-y-0 left-0 rounded-lg z-10">

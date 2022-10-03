@@ -1,10 +1,13 @@
 <script>
-    import { squigStore } from '$lib/squigStore.js'
+	import { squigStore } from '$lib/squigStore.js';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
+	export let squigID;
+
 	let ready = false;
 	let reloadAttributes = 1;
+
 	onMount(() => {
 		ready = true;
 	});
@@ -16,10 +19,22 @@
 		}, 50);
 	}
 
-	console.log(typeof($squigStore.token.token.metadata.features))
-	const attArray = ['Type',"Spectrum","Color Direction","Height",
-	"Segments","Steps Between","Start Color","End Color","Color Spread"]
+	const attArray = [
+		'Type',
+		'Spectrum',
+		'Color Direction',
+		'Height',
+		'Segments',
+		'Steps Between',
+		'Start Color',
+		'End Color',
+		'Color Spread'
+	];
 
+	console.log($squigStore)
+	function getRelated(feature) {
+		squigID = $squigStore.reLinkIDs[feature]
+	}
 </script>
 
 {#if ready == true}
@@ -35,29 +50,30 @@
 	<div
 		in:fly={{ y: 40, delay: 2200, duration: 400 }}
 		class="grid grid-cols-2 mobile:grid-cols-1 mobile:grid-flow-row mobile:row-span-full items-center gap-3 
-		desktop:grid-cols-2">
+		desktop:grid-cols-2"
+	>
 		{#each attArray as feature}
-			<div class="stats statBlock statBlockHover bg-stone-400">
-				<div class="stat py-3">
-					<div class="stat-title attyTitle QHD:text-base text-xs">{feature}</div>
-					{#if reloadAttributes == 1}
-						<div
-							in:fly={{ x: -20, duration: 400 }}
-							class="stat-value attyText text-xs QHD:text-base"
-						>
-							{$squigStore.token.token.metadata.features[feature]}
-						</div>
-					{:else}
-						<div
-							in:fly={{ x: -20, duration: 400 }}
-							class="stat-value attyText text-xs QHD:text-base opacity-0"
-						>
-							{$squigStore.token.token.metadata.features[feature]}
-						</div>
-					{/if}
-					<div class="stat-desc" />
-				</div>
-			</div>
+				<button on:click={() => getRelated(feature)} class="stats statBlock statBlockHover bg-stone-400 shadow-[6px_6px_0_0_#555] transition hover:shadow-none focus:outline-none focus:ring active:bg-stone-50">
+					<div class="stat py-3">
+						<div class="stat-title attyTitle QHD:text-base text-xs">{feature}</div>
+						{#if reloadAttributes == 1}
+							<div
+								in:fly={{ x: -20, duration: 400 }}
+								class="stat-value attyText text-xs QHD:text-base"
+							>
+								{$squigStore.token.token.metadata.features[feature]}
+							</div>
+						{:else}
+							<div
+								in:fly={{ x: -20, duration: 400 }}
+								class="stat-value attyText text-xs QHD:text-base opacity-0"
+							>
+								{$squigStore.token.token.metadata.features[feature]}
+							</div>
+						{/if}
+						<div class="stat-desc" />
+					</div>
+				</button>
 		{/each}
 
 		{#if $squigStore.token.token.metadata.tokenID == 7744}
@@ -69,10 +85,9 @@
 				<label
 					for="my-modal-4"
 					class="modal-button bg-transparent border-transparent place-self-stretch	
-        			text-white text-sm cursor-pointer">
-					
-					<div
-					class="stat-value attyText text-xs about desktop:text-base text-stone-700">
+        			text-white text-sm cursor-pointer"
+				>
+					<div class="stat-value attyText text-xs about desktop:text-base text-stone-700">
 						ABOUT.
 					</div>
 				</label>
@@ -82,5 +97,4 @@
 {/if}
 
 <style>
-
 </style>

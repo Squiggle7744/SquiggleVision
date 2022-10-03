@@ -107,10 +107,10 @@
 					<TitleSection {squigsMinted} {isMobile} bind:squigID={squigID} />
 				</div>
 				<div
-					class="justify-self-center w-full h-full overflow-x-hidden z-30	
+					class="justify-self-center w-full h-full overflow-y-hidden z-30	
 					scroll-smooth desktop:row-span-2 hidebars"
 				>
-					<AttributeSection {isMobile} />
+					<AttributeSection {isMobile} bind:squigID={squigID} />
 				</div>
 				<div class="place-self-end justify-self-start w-full z-40  bg-stone-800">
 					<SquigDetailsSection />

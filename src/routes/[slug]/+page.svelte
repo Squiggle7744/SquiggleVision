@@ -30,7 +30,6 @@
 
 	onMount(() => {
 		ready = true;
-		firstLoad = true;
 
 		//keyboard functionality
 		document.onkeyup = function (e) {
@@ -96,7 +95,6 @@
 </script>
 
 
-<LoadingScreen />
 <!-- 
 {#if isMobile == false} -->
 	<div class="flex flex-col mobile:flex-row h-screen bg-stone-800">
@@ -112,7 +110,7 @@
 					class="justify-self-center w-full h-full overflow-x-hidden z-30	
 					scroll-smooth desktop:row-span-2 hidebars"
 				>
-					<AttributeSection {isMobile} />
+					<AttributeSection bind:squigID={squigID} />
 				</div>
 				<div class="place-self-end justify-self-start w-full z-40  bg-stone-800">
 					<SquigDetailsSection />
@@ -132,7 +130,7 @@
 					<iframe
 						title="Live Squiggle View"
 						class="absolute w-full h-screen "
-						src={$squigStore.token.token.metadata.generator_url}
+						src={`https://generator.artblocks.io/${squigID}`}
 					/>
 				</div>
 			{/if}
@@ -149,7 +147,7 @@
 				<div
 					class="justify-self-center w-full h-full overflow-x-hidden z-30	 scroll-smooth desktop:row-span-2 hidebars"
 				>
-					<AttributeSection {isMobile} />
+					<AttributeSection {isMobile} bind:squigID={squigID} />
 				</div>
 				<div class="place-self-end mt-4 justify-self-start w-full z-20  bg-stone-800">
 					<SquigDetailsSection />
