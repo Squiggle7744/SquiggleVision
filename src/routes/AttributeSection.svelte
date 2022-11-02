@@ -105,7 +105,7 @@
 		{/each}
 
 		{#if $squigStore.token.token.metadata.tokenID == 7744}
-			<div
+			<a href='https://mirror.xyz/0xABC64317f72E78ED3Dd23502A4DCBE13B0e00588/iOn3uvC64BgIDVY_cizuV9nN3pTwhhsvv3a6gZzf8W4'
 				in:fly={{ y: 40, delay: 250, duration: 400 }}
 				class="stats statBlock statBlockHover h-full content-center	 cursor-pointer 
 				specBtn tranHover"
@@ -119,7 +119,7 @@
 						about
 					</div>
 				</label>
-			</div>
+			</a>
 		{/if}
 	</div>
 {/if}

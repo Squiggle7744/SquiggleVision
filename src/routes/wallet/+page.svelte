@@ -13,7 +13,7 @@
 	import LoadingScreen from '../loadingScreen.svelte';
 	import TitleSection from '../TitleSection.svelte';
 	import ArrowKeys from '../ArrowKeys.svelte';
-	import onboard from './onboard.js';
+	import { onboard } from '$lib/onboard.js';
 
 	//import initial random squig from +page.server.js
 	export let data;
@@ -142,21 +142,21 @@
 	{/if}
 
 	{#if $wallets$?.[0]?.provider}
-  <div>
-    <img src={ens?.avatar} alt="ENS Avatar" />
-    <div>{ ens?.name ? ens.name : address }</div>
-    <div>Connected to {wallet.label}</div>
-    <button onClick={() => { disconnect($wallets$?.[0]) }>Disconnect</button>
-  </div>
-{:else}
-  <div>
-    <button
-      onClick={connect}>
-      Connect
-    </button>
-  </div>
-{/if}
-
+		<div>
+			<img src={ens?.avatar} alt="ENS Avatar" />
+			<div>{ens?.name ? ens.name : address}</div>
+			<div>Connected to {wallet.label}</div>
+			<button
+				onClick={() => {
+					disconnect($wallets$?.[0]);
+				}}>Disconnect</button
+			>
+		</div>
+	{:else}
+		<div>
+			<button onClick={connect}> Connect </button>
+		</div>
+	{/if}
 	<!-- Live Squiggle View-->
 	<div class="basis-5/6 bg-white relative z-0 order-2">
 		<ArrowKeys bind:squigID />
