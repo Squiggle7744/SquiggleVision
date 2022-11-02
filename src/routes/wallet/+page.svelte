@@ -14,13 +14,12 @@
 	import TitleSection from '../TitleSection.svelte';
 	import ArrowKeys from '../ArrowKeys.svelte';
 	import { onboard } from '$lib/onboard.js';
+	import squigsMinted from '$lib/squigsMinted.js'
+
 
 	//import initial random squig from +page.server.js
 	export let data;
 	squigStore.set(data);
-
-	//Number of Squigs Currently Minted
-	const squigsMinted = 9675;
 
 	let squigID = $squigStore.token.token.metadata.tokenID;
 	let ready = false;
